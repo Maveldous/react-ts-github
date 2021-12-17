@@ -1,3 +1,3 @@
-## Если воспользовался репозиторием, дай обратную связь - поставь звезду
+## React-typescript github search application
 
 ### npm start - запуск

@@ -16,7 +16,7 @@ import styles from "../../assets/scss/styles.module.scss";
 
 const ProfilePage = () => {
   const location = useLocation();
-  const [searchResultRepos, setSearchResultRepos] = useState<RespRepository[] | null>([])
+  const [searchResultRepos, setSearchResultRepos] = useState<RespRepository[] | null>(null)
   const inputSearch: InputInfo = useInput('');
   const {query, repositories} = useTypedSelector(state => state.repository)
 

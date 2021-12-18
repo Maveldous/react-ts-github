@@ -29,17 +29,12 @@ const RepositoryList: React.FC<RepositoryListProps> = ({visibleRepositories}) =>
     }
   }, [])
 
-
-  if (loading) {    
+  if (loading || !visibleRepositories) {    
     return <span>Loading...</span>
   }
 
   if (error) {
     return <span>{error}</span>
-  }
-
-  if (!visibleRepositories) {
-    return <div></div>
   }
 
   if (Array.isArray(visibleRepositories) && visibleRepositories.length === 0) {

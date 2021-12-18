@@ -29,14 +29,10 @@ const ProfilePage = () => {
   };
   const setAllRepos = () => { setSearchResultRepos(repositories); };
 
-  const debouncedFetch = useSearch({query: query || '', fetchCallback: setVisibleRepos, emptyCallback: setAllRepos}, [repositories]);
+  const debouncedFetch = useSearch({fetchCallback: setVisibleRepos, emptyCallback: setAllRepos}, [repositories]);
 
   useEffect(() => {
-    if (getQuery() !== inputSearch.value) {
-      debouncedFetch(inputSearch.value)
-    } else {
-      setVisibleRepos(inputSearch.value)
-    }
+    debouncedFetch(inputSearch.value, query)
   }, [inputSearch.value, repositories])
 
   useEffect(() => {

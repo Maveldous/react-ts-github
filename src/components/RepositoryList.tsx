@@ -29,7 +29,8 @@ const RepositoryList: React.FC<RepositoryListProps> = ({visibleRepositories}) =>
     }
   }, [])
 
-  if (loading) {
+
+  if (loading) {    
     return <span>Loading...</span>
   }
 

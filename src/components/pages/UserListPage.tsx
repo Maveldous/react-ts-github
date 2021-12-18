@@ -20,12 +20,13 @@ const UserListPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const debouncedFetch = useSearch({query, fetchCallback: fetchUsers, emptyCallback: setUsers}, []);
+  const debouncedFetch = useSearch({fetchCallback: fetchUsers, emptyCallback: setUsers}, []);
 
   const redirectToProfile = (name: string) => navigate(`/user/${name}`)
 
   useEffect(() => {
-    debouncedFetch(inputSearch.value)
+    console.log('change input value', inputSearch.value);
+    debouncedFetch(inputSearch.value, query)
   }, [inputSearch.value, debouncedFetch])
 
   useEffect(() => {

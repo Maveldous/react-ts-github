@@ -3,17 +3,17 @@ import { useNavigate, useLocation }from "react-router-dom";
 import { debounce } from "lodash";
 
 type useSearchProps = {
-  query: string,
+  // query: string,
   fetchCallback: Function,
   emptyCallback: Function,
 }
 
-export const useSearch = ({query, fetchCallback, emptyCallback}: useSearchProps, dependencies: any[]): Function => {
+export const useSearch = ({fetchCallback, emptyCallback}: useSearchProps, dependencies: any[]): Function => {
   const navigate = useNavigate();
   const location = useLocation();
 
   const debouncedFetch = useCallback(
-    debounce((input:string): void => {
+    debounce((input:string, query: string): void => {
       if (!input) {
         emptyCallback([])
         return

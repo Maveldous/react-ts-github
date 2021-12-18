@@ -13,7 +13,7 @@ export const fetchUsers = (query: string = '') => {
         } catch (e) {
             dispatch({
                 type: UserActionTypes.FETCH_USERS_ERROR,
-                payload: 'Произошла ошибка при загрузке списка дел'
+                payload: 'Произошла ошибка при загрузке списка пользователей'
             })
         }
     }

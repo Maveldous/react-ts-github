@@ -1,6 +1,8 @@
 import React from "react";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 
+import styles from "../assets/scss/components/table.module.scss";
+
 interface UserRowProps {
   imgSrc: string,
   name: string,
@@ -8,8 +10,8 @@ interface UserRowProps {
 }
 
 const GitUserRow:React.FC<UserRowProps> = ({imgSrc, name, onUserClick}) => {
-  return <div onClick={() => onUserClick(name)}>
-    <img src={imgSrc} alt="User avatar" />
+  return <div onClick={() => onUserClick(name)} className={styles.table__row}>
+    <img src={imgSrc} alt="User avatar" width="100" />
     <span>{name}</span>
   </div>
 }
@@ -29,8 +31,12 @@ const UserList:React.FC<UserListProps> = ({onUserClick}) => {
     return <span>{error}</span>;
   }
 
+  if (Array.isArray(users) && users.length === 0) {
+    return <span>No results</span>;
+  }
+
   return (
-    <ul>
+    <ul className={styles.table}>
       {users.map(user => (
         <li key={user.id}>
           <GitUserRow imgSrc={user.avatar_url} name={user.login} onUserClick={onUserClick}/>

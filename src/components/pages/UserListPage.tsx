@@ -10,6 +10,8 @@ import { useSearch } from "../../hooks/useSearch";
 import UserList from '../UserList';
 import CInput from '../common/CInput';
 
+import styles from "../../assets/scss/styles.module.scss";
+
 const UserListPage = () => {
   const inputSearch: InputInfo = useInput('');
   const {query} = useTypedSelector(state => state.user)
@@ -32,9 +34,12 @@ const UserListPage = () => {
   }, [])
 
   return <div>
-    <CInput
-      {...inputSearch.bind}
-    />
+    <div className={styles.app__input}>
+      <CInput
+        {...inputSearch.bind}
+        placeholder="Search for Users"
+      />
+    </div>
     <UserList onUserClick={redirectToProfile}/>
   </div>
 }

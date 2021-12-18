@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom"
 import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
 
+import styles from "../assets/scss/components/profile.module.scss";
+
 const Profile: React.FC = () => {
 
   const params = useParams();
@@ -28,22 +30,23 @@ const Profile: React.FC = () => {
     return <div></div>
   }
 
-  return <div>
-    <div>
-      <img src={profile.avatar_url} alt="Profile avatar" />
-    </div>
-    <ul>
+  return <div className={styles.profile}>
+    <div className={styles.profile__wrapper}>
+      <div>
+        <img src={profile.avatar_url} alt="Profile avatar" width="420" />
+      </div>
+      <ul className={styles.profile__info}>
       <li>
-        {profile.name || '-'}
+        Name: {profile.name || '-'}
       </li>
       <li>
-        {profile.email || '-'}
+        Email: {profile.email || '-'}
       </li>
       <li>
-        {profile.location || '-'}
+        Location: {profile.location || '-'}
       </li>
       <li>
-        {profile.created_at}
+        Join Date: {profile.created_at}
       </li>
       <li>
         {profile.followers} Followers
@@ -52,8 +55,9 @@ const Profile: React.FC = () => {
       Following {profile.following}
       </li>
     </ul>
-    <p>
-      {profile.bio || 'none'}
+    </div>
+    <p className={styles.profile__bio}>
+      Bio: {profile.bio || 'none'}
     </p>
   </div>
 }

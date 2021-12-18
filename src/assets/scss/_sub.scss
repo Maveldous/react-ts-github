@@ -1,0 +1,35 @@
+$margins: (
+  "1": 4px,
+  "2": 8px,
+  "3": 16px,
+  "4": 24px,
+  "5": 32px,
+);
+
+@each $class-value, $pixels in $margins {
+  .ml-#{$class-value} {
+    margin-left: $pixels;
+  }
+
+  .mr-#{$class-value} {
+    margin-right: $pixels;
+  }
+
+  .mb-#{$class-value} {
+    margin-bottom: $pixels;
+  }
+
+  .mt-#{$class-value} {
+    margin-top: $pixels;
+  }
+
+  .mx-#{$class-value} {
+    margin-left: $pixels;
+    margin-right: $pixels;
+  }
+
+  .my-#{$class-value} {
+    margin-top: $pixels;
+    margin-bottom: $pixels;
+  }
+}

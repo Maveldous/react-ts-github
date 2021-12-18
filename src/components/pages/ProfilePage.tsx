@@ -12,6 +12,8 @@ import CInput from '../common/CInput';
 
 import { RespRepository } from "../../types/repository";
 
+import styles from "../../assets/scss/styles.module.scss";
+
 const ProfilePage = () => {
   const location = useLocation();
   const [searchResultRepos, setSearchResultRepos] = useState<RespRepository[] | null>([])
@@ -44,10 +46,12 @@ const ProfilePage = () => {
   return (
     <div>
       <Profile />
-      <hr />
-      <CInput
-        {...inputSearch.bind}
-      />
+      <div className={styles.app__input}>
+        <CInput
+          {...inputSearch.bind}
+          placeholder="Search for User's Repositories"
+        />
+      </div>
       <RepositoryList visibleRepositories={searchResultRepos}/>
     </div>
   )

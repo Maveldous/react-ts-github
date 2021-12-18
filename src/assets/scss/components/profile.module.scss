@@ -1,0 +1,24 @@
+.profile {
+  padding: 24px;
+  margin-bottom: 24px;
+
+  &__wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 32px;
+
+    li {
+      padding-bottom: 8px;
+    }
+  }
+
+  &__bio {
+    text-align: center;
+    margin-top: 16px;
+  }
+}
